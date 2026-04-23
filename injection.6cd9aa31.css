@@ -20,6 +20,15 @@ div[data-component-type="s-searchgrid-carousel"][data-a-carousel-options*="trend
 div[data-cel-widget*="sp_search_thematic"],
 
 /* Hide ONLY the "More results" divider row */
-.s-main-slot > div:has(h2.a-size-medium-plus.a-text-bold) {
+.s-main-slot > div:has(h2.a-size-medium-plus.a-text-bold),
+
+/* Any VSE carousel - Below product video */
+.a-carousel-container[class*="vse"],
+
+/* Remove free delivery by amazon section */
+[data-feature-name*="sponsoredProducts"],
+
+/* Remove Brands in this category on Amazon section */
+[data-feature-name="sims-discoveryAndInspiration"] {
     display: none !important;
 }
