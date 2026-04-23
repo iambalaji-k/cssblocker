@@ -44,6 +44,55 @@
       "css": [
         "flipkart.css"
       ]
+    },
+    {
+      "matches": [
+        "https://*.hotstar.com/*"
+      ],
+      "css": [
+        "hotstar.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.instagram.com/*"
+      ],
+      "css": [
+        "instagram.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.x.com/*",
+        "https://*.twitter.com/*"
+      ],
+      "css": [
+        "x.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.crunchyroll.com/*"
+      ],
+      "css": [
+        "crunchyroll.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.angelone.in/*"
+      ],
+      "css": [
+        "angelone.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.icai.org/*"
+      ],
+      "css": [
+        "icai.css"
+      ]
     }
   ],
   "web_accessible_resources": []
