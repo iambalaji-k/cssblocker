@@ -1,1 +1,25 @@
-.AdHolder,[data-asin=""]:not(.a-section):not(.s-result-item),._dGV0c_adLabelContainer_2DLr0,.amzn-safe-frame-container,.a-section .s-widget-container:not([cel_widget_id]),.rush-component>.s-card-container,#live-flagship-root{display:none!important}
+.AdHolder,
+[data-asin=""]:not(.a-section):not(.s-result-item),
+._dGV0c_adLabelContainer_2DLr0,
+.amzn-safe-frame-container,
+.a-section .s-widget-container:not([cel_widget_id]),
+.rush-component>.s-card-container,
+#live-flagship-root,
+
+/* Kill the entire trending widget block */
+div[data-cel-widget*="FEATURED_ASINS_LIST"],
+
+/* More precise: target trending slot specifically */
+div[data-cel-widget*="trending-hardlines"],
+div[data-csa-c-content-id*="trending"],
+
+/* Carousel-based trending sections */
+div[data-component-type="s-searchgrid-carousel"][data-a-carousel-options*="trending"],
+
+/* Fallback: hide anything with that slotName */
+div[data-cel-widget*="sp_search_thematic"],
+
+/* Hide ONLY the "More results" divider row */
+.s-main-slot > div:has(h2.a-size-medium-plus.a-text-bold) {
+    display: none !important;
+}
