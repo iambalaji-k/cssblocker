@@ -1,7 +1,18 @@
-#\30 1KKEEC2DGVPD91FPSC6R0RKN9 > .container--cq5XE.container--is-contained--MuvQK,
+/*#\30 1KKEEC2DGVPD91FPSC6R0RKN9 > .container--cq5XE.container--is-contained--MuvQK,
 #\30 1KKEECM9HVFFVQQYN02V699PA > .container--cq5XE.container--is-contained--MuvQK,
 #\30 1KKEEDDFB0R3JBWHDERP1VHEZ > .container--cq5XE.container--is-contained--MuvQK,
 #\30 1KKEEE36WC59M5SA0MSVTRKZW > .container--cq5XE.container--is-contained--MuvQK,
 .container--cq5XE.container--is-contained--MuvQK.news-and-editorial__content-wrapper--fPZYD {
     display: none !important;
+}*/
+
+/* Hide any feed banner container */
+[class*="feed-banner"],
+
+/* More stable selector */
+[class*="news-and-editorial"],
+
+/* Remove any music video collection */
+div[data-t^="music-video-collection"] {
+  display: none !important;
 }

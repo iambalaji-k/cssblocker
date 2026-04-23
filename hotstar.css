@@ -1,3 +1,5 @@
-._398UJ4JyoGrBhBsWNx604z {
+/* Hotstar ads – core block */
+[data-testid="ad-media"],
+[data-testid="ad-details"] {
     display: none !important;
 }

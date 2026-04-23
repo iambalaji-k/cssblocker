@@ -1,4 +1,19 @@
-.mb-5.rounded-lg.border.border-primary-default.py-2.px-4.flex.justify-between.items-center.bg-primary-default,
-.col-span-12.md\:col-span-5.lg\:col-span-4.flex.justify-center.items-center.mdScreen\:py-8.xss\:py-6.largeScreen\:py-14.bg-primary-default {
+/* Hide full promo column */
+div[class*="col-span"]:has(.slider-container) {
     display: none !important;
+}
+
+/* Convert layout to centered flex */
+#root > div > div {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+}
+
+/* Center login card */
+.col-span-12.md\:col-span-7.lg\:col-span-8 {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
 }

@@ -1,3 +1,9 @@
+/* Hide sidebar */
 .x1dr59a3.x13vifvy.x7vhb2i.x6bx242 {
+    display: none !important;
+}
+
+/* Only target small widget containers */
+a:has(svg[aria-label="Also from Meta"]) {
     display: none !important;
 }
