@@ -1,0 +1,15 @@
+/* === FLIPKART ADS CLEANUP (OPTIMIZED) === */
+
+/* 1. Search results ads (most reliable) */
+div[data-id]:has([data-tkid^="ADVIEW_"]),
+
+/* 2. Product / homepage ads via tracking */
+a[href*="_AD"],
+a[href*="advertisement"],
+a[href*="/partnership/"],
+
+/* 3. Product tiles with AD badge (all pages) */
+div[id^="product-"]:has(div[class*="v1zwn"]),
+a[href*="/p/"]:has(div[class*="v1zwn"]) {
+    display: none !important;
+}
