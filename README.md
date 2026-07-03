@@ -1,49 +1,119 @@
-# Amazon Unsponsored
+# CSS Blocker
 
-A lightweight browser extension designed to create a cleaner, ad-free shopping experience on Amazon by automatically hiding sponsored products, trending widgets, and promotional carousels.
+A lightweight browser extension that removes unwanted sections (ads, sidebars, promos, clutter) from websites using CSS injection. Works on 8+ sites out of the box — Amazon, Flipkart, Hotstar, Instagram, X/Twitter, Crunchyroll, AngelOne, and ICAI.
 
 ## How it Works
 
-The extension uses a technique called **CSS Injection**. When you load an Amazon page, the browser automatically applies the rules defined in `injection.6cd9aa31.css`. These rules target specific HTML patterns that Amazon uses to display non-organic content and sets their display property to `none !important`, effectively removing them from your view.
+The extension uses **CSS Injection**. When you load a page, the browser automatically applies CSS rules that target ad containers and clutter elements, setting `display: none !important` to remove them from view.
 
-## Current Filter List
+## Supported Sites
 
-The extension currently filters out:
-- **Sponsored Product Listings:** Elements explicitly marked as ad holders or lacking standard product identifiers (ASINs).
-- **Trending Widgets:** Promotional blocks like "Trending now" or "Featured for you."
-- **Search Thematic Ads:** Thematic ad slots often found at the top or middle of search results.
-- **Carousel Promotions:** Sponsored product carousels that scroll horizontally.
-- **Live Flagship Elements:** Interactive or live promotional roots on the homepage.
-
-## How to Add Your Own Selectors
-
-If you find a new sponsored section that isn't being hidden, follow these steps to add it:
-
-### Step 1: Identify the Element
-1. Open Amazon in your browser and find the element you want to hide.
-2. **Right-click** on the element and select **Inspect** (or press `F12`).
-3. The browser's Developer Tools will open, highlighting the HTML code for that element.
-
-### Step 2: Find a Stable Selector
-Look for unique attributes in the highlighted code:
-- **ID:** Look for `id="unique-name"`. (Used in CSS as `#unique-name`).
-- **Data Attributes:** Look for `data-cel-widget="..."` or `data-component-type="..."`. These are often the most reliable for Amazon. (Used in CSS as `div[data-attribute="value"]`).
-- **Classes:** Look for `class="some-class-name"`. (Used in CSS as `.some-class-name`).
-
-*Tip: Avoid using "Copy Selector" from the right-click menu in DevTools if it includes `nth-child(n)`, as these are fragile and break when the page layout changes slightly.*
-
-### Step 3: Update the CSS File
-1. Open `injection.6cd9aa31.css` in a text editor.
-2. Add a comma after the last selector in the list.
-3. Paste your new selector.
-4. Save the file.
-
-### Step 4: Reload the Extension
-1. Go to your browser's extensions page (`chrome://extensions` or `about:debugging`).
-2. Find **Amazon Unsponsored**.
-3. Click the **Reload** icon to apply your changes.
+| Site | CSS File | What's Blocked |
+|---|---|---|
+| Amazon | `sites/amazon.css` | Sponsored products, trending widgets, promo carousels, VSE ads, brand sections |
+| Flipkart | `sites/flipkart.css` | Search result ads, product tiles with AD badges, tracking links |
+| Hotstar | `sites/hotstar.css` | Ad media and ad details containers |
+| Instagram | `sites/instagram.css` | Sidebar widgets, "Also from Meta" links |
+| X / Twitter | `sites/x.css` | Right sidebar, premium sign-up, creator studio links |
+| Crunchyroll | `sites/crunchyroll.css` | Feed banners, news & editorial sections, music video collections |
+| AngelOne | `sites/angelone.css` | Promo columns, layout centering for login |
+| ICAI | `sites/icai.css` | Banner elements |
 
 ## Project Structure
-- `manifest.json`: The extension's configuration file.
-- `injection.6cd9aa31.css`: The stylesheet containing all the hiding logic.
-- `icon*.png`: Icons for the extension at various sizes.
+
+```
+css-blocker/
+├── sites/                    # CSS rules — one file per site
+│   ├── amazon.css
+│   ├── flipkart.css
+│   └── ...
+├── icons/                    # Extension icons
+│   ├── logo16.png
+│   ├── logo48.png
+│   └── logo128.png
+├── sites.json                # Config: maps URL patterns to CSS files
+├── manifest.template.json    # Base manifest fields (name, version, icons)
+├── build.mjs                 # Build script — reads sites.json + template → manifest.json
+├── package.json              # npm scripts
+├── manifest.json             # Generated output (committed for clone-and-load)
+└── README.md
+```
+
+## How to Add a New Site
+
+1. Create a CSS file in `sites/` with your blocking rules
+2. Add an entry in `sites.json`:
+   ```json
+   {
+     "name": "YourSite",
+     "matches": ["https://*.yoursite.com/*"],
+     "css": "sites/yoursite.css"
+   }
+   ```
+3. Run `npm run build` to regenerate `manifest.json`
+4. Reload the extension in your browser
+
+## How to Change Rules for an Existing Site
+
+Just edit the CSS file in `sites/` and reload the extension. **No build step needed** — the CSS files are loaded directly by the browser at runtime.
+
+## Writing CSS Rules
+
+Each CSS file uses standard CSS selectors to target page elements and hide them. Every rule must end with a `{ display: none !important; }` block.
+
+### Single selector
+```css
+.banner-ad {
+    display: none !important;
+}
+```
+
+### Grouped selectors (same hide rule for multiple elements)
+```css
+.sponsored-post,
+.promoted-tweet,
+div[data-type="ad"] {
+    display: none !important;
+}
+```
+
+### Common selector types
+
+| Type | Example | When to use |
+|---|---|---|
+| Class | `.ad-container` | Elements with `class="ad-container"` |
+| ID | `#sidebar-ads` | Unique elements with `id="sidebar-ads"` |
+| Attribute | `div[data-testid="sidebarColumn"]` | Elements with specific `data-*` attributes (most stable for dynamic sites) |
+| Nested | `div:has(> [data-testid="ad"])` | Parent elements that contain a certain child |
+| Wildcard | `[class*="promo-"]` | Elements whose class contains "promo-" |
+
+### Finding selectors (via DevTools)
+1. Right-click the element → **Inspect**
+2. In the Elements panel, look for unique `data-*` attributes, stable class names, or IDs
+3. Use **Copy → Copy selector** as a starting point, but remove `:nth-child(n)` parts — those break when the page layout changes
+4. Test by pasting into the DevTools console: `document.querySelector('your-selector')`
+
+### Rules for reliable selectors
+- Prefer `data-*` attributes over class names (sites change classes more often)
+- Avoid `:nth-child()`, `:first-child`, `:last-child` — they break on layout changes
+- Always end with `display: none !important;` — the `!important` is required to override the site's own CSS
+
+## Loading the Extension in Brave / Chrome
+
+1. Go to `brave://extensions` or `chrome://extensions`
+2. Enable **Developer mode** (toggle in top-right)
+3. Click **Load unpacked**
+4. Select this folder
+5. Done — the extension is active
+
+## When Do I Need to Run `npm run build`?
+
+| You changed... | Run build? | Then... |
+|---|---|---|
+| CSS rules in `sites/*.css` | **No** — just reload the extension | CSS files are loaded at runtime |
+| `sites.json` (new site, new URLs) | **Yes** — `npm run build` | Regenerates `manifest.json` to include the new site |
+| `manifest.template.json` (version, name, icons) | **Yes** — `npm run build` | Regenerates `manifest.json` with the new metadata |
+
+## Why Manifest V3?
+
+This extension was migrated from Manifest V2 to V3 because Brave (and Chrome) deprecated V2. V3 is the current standard and allows the extension to remain supported.

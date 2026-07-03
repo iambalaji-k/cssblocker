@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Amazon",
+    "matches": [
+      "https://*.amazon.com.au/*",
+      "https://*.amazon.com.br/*",
+      "https://*.amazon.ca/*",
+      "https://*.amazon.cn/*",
+      "https://*.amazon.eg/*",
+      "https://*.amazon.fr/*",
+      "https://*.amazon.de/*",
+      "https://*.amazon.in/*",
+      "https://*.amazon.it/*",
+      "https://*.amazon.co.jp/*",
+      "https://*.amazon.com.mx/*",
+      "https://*.amazon.nl/*",
+      "https://*.amazon.pl/*",
+      "https://*.amazon.sa/*",
+      "https://*.amazon.sg/*",
+      "https://*.amazon.es/*",
+      "https://*.amazon.se/*",
+      "https://*.amazon.com.tr/*",
+      "https://*.amazon.ae/*",
+      "https://*.amazon.co.uk/*",
+      "https://*.amazon.com/*"
+    ],
+    "css": "sites/amazon.css"
+  },
+  {
+    "name": "Flipkart",
+    "matches": [
+      "https://*.flipkart.com/*"
+    ],
+    "css": "sites/flipkart.css"
+  },
+  {
+    "name": "Hotstar",
+    "matches": [
+      "https://*.hotstar.com/*"
+    ],
+    "css": "sites/hotstar.css"
+  },
+  {
+    "name": "Instagram",
+    "matches": [
+      "https://*.instagram.com/*"
+    ],
+    "css": "sites/instagram.css"
+  },
+  {
+    "name": "X (Twitter)",
+    "matches": [
+      "https://*.x.com/*",
+      "https://*.twitter.com/*"
+    ],
+    "css": "sites/x.css"
+  },
+  {
+    "name": "Crunchyroll",
+    "matches": [
+      "https://*.crunchyroll.com/*"
+    ],
+    "css": "sites/crunchyroll.css"
+  },
+  {
+    "name": "AngelOne",
+    "matches": [
+      "https://*.angelone.in/*"
+    ],
+    "css": "sites/angelone.css"
+  },
+  {
+    "name": "ICAI",
+    "matches": [
+      "https://*.icai.org/*"
+    ],
+    "css": "sites/icai.css"
+  }
+]
