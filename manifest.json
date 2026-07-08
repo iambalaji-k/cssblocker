@@ -93,6 +93,30 @@
       "css": [
         "sites/icai.css"
       ]
+    },
+    {
+      "matches": [
+        "https://*.chatgpt.com/*"
+      ],
+      "css": [
+        "sites/chatgpt.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.gemini.google.com/*"
+      ],
+      "css": [
+        "sites/gemini.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://chat.deepseek.com/*"
+      ],
+      "css": [
+        "sites/deepseek.css"
+      ]
     }
   ]
 }

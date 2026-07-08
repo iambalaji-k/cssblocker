@@ -1,0 +1,7 @@
+[class*="-mt-4"].text-token-text-tertiary.relative {
+    display: none !important;
+}
+
+[class*="text-caption-regular"][class*="text-token-text-tertiary"][class*="pointer-events-auto"] {
+    display: none !important;
+}
