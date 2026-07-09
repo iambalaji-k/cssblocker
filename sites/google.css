@@ -1,0 +1,23 @@
+.gb_5[aria-label="Gmail "] {
+    display: none !important;
+}
+
+.gb_5[aria-label="Search for Images "] {
+    display: none !important;
+}
+
+a.w5hRs[href*="about.google"] {
+    display: none !important;
+}
+
+a.w5hRs[href*="store.google.com"] {
+    display: none !important;
+}
+
+input.RNmpXc[aria-label="I'm Feeling Lucky"] {
+    display: none !important;
+}
+
+div.KxwPGc.SSwjIe {
+    display: none !important;
+}

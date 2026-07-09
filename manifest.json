@@ -117,6 +117,41 @@
       "css": [
         "sites/deepseek.css"
       ]
+    },
+    {
+      "matches": [
+        "https://*.youtube.com/*"
+      ],
+      "css": [
+        "sites/youtube.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://google.com/*"
+      ],
+      "css": [
+        "sites/google.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.reddit.com/*",
+        "https://reddit.com/*",
+        "https://old.reddit.com/*"
+      ],
+      "css": [
+        "sites/reddit.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "css": [
+        "sites/gmail.css"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # CSS Blocker
 
-A lightweight browser extension that removes unwanted sections (ads, sidebars, promos, clutter) from websites using CSS injection. Works on 8+ sites out of the box — Amazon, Flipkart, Hotstar, Instagram, X/Twitter, Crunchyroll, AngelOne, and ICAI.
+A lightweight browser extension that removes unwanted sections (ads, sidebars, promos, clutter) from websites using CSS injection. Works on 12 sites out of the box — Amazon, Flipkart, Hotstar, Instagram, X/Twitter, Crunchyroll, AngelOne, ICAI, ChatGPT, Gemini, DeepSeek, and YouTube.
 
 ## How it Works
 
@@ -18,6 +18,10 @@ The extension uses **CSS Injection**. When you load a page, the browser automati
 | Crunchyroll | `sites/crunchyroll.css` | Feed banners, news & editorial sections, music video collections |
 | AngelOne | `sites/angelone.css` | Promo columns, layout centering for login |
 | ICAI | `sites/icai.css` | Banner elements |
+| ChatGPT | `sites/chatgpt.css` | Sidebar clutter, upgrade promos |
+| Gemini | `sites/gemini.css` | Sidebar clutter, upgrade promos |
+| DeepSeek | `sites/deepseek.css` | Sidebar clutter, upgrade promos |
+| YouTube | `sites/youtube.css` | Promoted/sparkles videos, merch shelf, banner promos, player ads, mealbar promos |
 
 ## Project Structure
 

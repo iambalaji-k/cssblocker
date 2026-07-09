@@ -1,0 +1,15 @@
+recent-posts {
+    display: none !important;
+}
+
+a#create-post {
+    display: none !important;
+}
+
+a#advertise-button {
+    display: none !important;
+}
+
+#right-sidebar-container {
+    display: none !important;
+}

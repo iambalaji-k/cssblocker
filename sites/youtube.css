@@ -1,0 +1,33 @@
+ytd-masthead ytd-button-renderer[button-next] {
+    display: none !important;
+}
+
+ytd-guide-section-renderer:has(#guide-section-title:not([hidden])) > #items > ytd-guide-entry-renderer a[href*="music.youtube.com"],
+ytd-guide-section-renderer:has(#guide-section-title:not([hidden])) > #items > ytd-guide-entry-renderer a[href*="youtubekids.com"] {
+    display: none !important;
+}
+
+ytd-guide-section-renderer:has(#guide-section-title[is-empty]) #items ytd-guide-entry-renderer a[href="/reporthistory"] {
+    display: none !important;
+}
+
+ytd-guide-renderer #footer {
+    display: none !important;
+}
+
+#sections > ytd-guide-section-renderer:nth-child(5),
+#sections > ytd-guide-section-renderer:nth-child(6) {
+    display: none !important;
+}
+
+ytd-menu-renderer yt-button-view-model button[aria-label="Thanks"] {
+    display: none !important;
+}
+
+ytd-menu-renderer yt-button-view-model button[aria-label="Download to Mobile"] {
+    display: none !important;
+}
+
+#sponsor-button > timed-animation-button-renderer > yt-smartimation > div > ytd-button-renderer > yt-button-shape {
+    display: none !important;
+}

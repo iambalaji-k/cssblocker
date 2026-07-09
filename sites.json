@@ -96,5 +96,36 @@
       "https://chat.deepseek.com/*"
     ],
     "css": "sites/deepseek.css"
+  },
+  {
+    "name": "YouTube",
+    "matches": [
+      "https://*.youtube.com/*"
+    ],
+    "css": "sites/youtube.css"
+  },
+  {
+    "name": "Google",
+    "matches": [
+      "https://www.google.com/*",
+      "https://google.com/*"
+    ],
+    "css": "sites/google.com.css"
+  },
+  {
+    "name": "Reddit",
+    "matches": [
+      "https://www.reddit.com/*",
+      "https://reddit.com/*",
+      "https://old.reddit.com/*"
+    ],
+    "css": "sites/reddit.css"
+  },
+  {
+    "name": "Gmail",
+    "matches": [
+      "https://mail.google.com/*"
+    ],
+    "css": "sites/mail.google.com.css"
   }
 ]
