@@ -110,7 +110,7 @@
       "https://www.google.com/*",
       "https://google.com/*"
     ],
-    "css": "sites/google.com.css"
+    "css": "sites/google.css"
   },
   {
     "name": "Reddit",
@@ -126,6 +126,14 @@
     "matches": [
       "https://mail.google.com/*"
     ],
-    "css": "sites/mail.google.com.css"
+    "css": "sites/gmail.css"
+  },
+  {
+    "name": "LinkedIn",
+    "matches": [
+      "https://*.linkedin.com/*"
+    ],
+    "css": "sites/linkedin.css",
+    "js": "sites/linkedin.js"
   }
 ]

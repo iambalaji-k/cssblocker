@@ -14,6 +14,7 @@ const sites = JSON.parse(
 template.content_scripts = sites.map((site) => ({
   matches: site.matches,
   css: [site.css],
+  ...(site.js ? { js: [site.js] } : {}),
 }));
 
 writeFileSync(

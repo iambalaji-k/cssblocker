@@ -152,6 +152,17 @@
       "css": [
         "sites/gmail.css"
       ]
+    },
+    {
+      "matches": [
+        "https://*.linkedin.com/*"
+      ],
+      "css": [
+        "sites/linkedin.css"
+      ],
+      "js": [
+        "sites/linkedin.js"
+      ]
     }
   ]
 }

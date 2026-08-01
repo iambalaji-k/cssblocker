@@ -1,0 +1,43 @@
+button[aria-label="For Business"] {
+    display: none !important;
+}
+
+a:has(#premium-chip-v2-medium),
+a:has(#premium-chip-v2-small) {
+    display: none !important;
+}
+
+a[href*="/me/profile-views/"],
+a[href*="/analytics/creator/content/"] {
+    display: none !important;
+}
+
+aside[aria-label="Aside"] {
+    display: none !important;
+}
+
+section.ad-banner-container,
+footer.global-footer-compact {
+    display: none !important;
+}
+
+footer:has(a[href*="/accessibility/"]) {
+    display: none !important;
+}
+
+div:has(> svg#linkedin-logo-xxsmall) {
+    display: none !important;
+}
+
+section:has(> div > div > div > div > svg#premium-badge-v2-xsmall) {
+    display: none !important;
+}
+
+div:has(> ul.global-footer-compact__links) {
+    display: none !important;
+}
+
+div[role="listitem"]:has(img[alt="View Sponsored Content"]) {
+    display: none !important;
+}
+
