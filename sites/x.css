@@ -220,6 +220,9 @@ a[href="/i/jf/creators/studio"],
 
 /* Premium */
 a[href="/i/premium_sign_up"],
-a[data-testid="premium-signup-tab"] {
+a[data-testid="premium-signup-tab"],
+
+/* Promoted Tweets in Timeline (uBlock Origin) */
+[data-testid="primaryColumn"] [data-testid="cellInnerDiv"]:has([data-testid$="-impression-pixel"]) {
     display: none !important;
 }

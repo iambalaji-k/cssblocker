@@ -10,6 +10,12 @@ a#advertise-button {
     display: none !important;
 }
 
-#right-sidebar-container {
+#right-sidebar-container,
+
+/* uBlock Origin Reddit Ad & Promo components */
+shreddit-ad-post,
+div[data-testid="ad-post"],
+div[id*="_xpromo_nsfw_blocking_"],
+div.prompt:has(slot[name="view-in-app-button"]) {
     display: none !important;
 }

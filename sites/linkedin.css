@@ -17,7 +17,9 @@ aside[aria-label="Aside"] {
 }
 
 section.ad-banner-container,
-footer.global-footer-compact {
+footer.global-footer-compact,
+#global-alert-queue,
+.global-alert--yield {
     display: none !important;
 }
 

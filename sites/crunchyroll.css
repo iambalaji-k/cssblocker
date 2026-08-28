@@ -13,6 +13,9 @@
 [class*="news-and-editorial"],
 
 /* Remove any music video collection */
-div[data-t^="music-video-collection"] {
+div[data-t^="music-video-collection"],
+
+/* uBlock Origin Leaderboard skin */
+#template_skin_leaderboard {
   display: none !important;
 }

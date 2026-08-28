@@ -28,6 +28,15 @@ ytd-menu-renderer yt-button-view-model button[aria-label="Download to Mobile"] {
     display: none !important;
 }
 
-#sponsor-button > timed-animation-button-renderer > yt-smartimation > div > ytd-button-renderer > yt-button-shape {
+#sponsor-button > timed-animation-button-renderer > yt-smartimation > div > ytd-button-renderer > yt-button-shape,
+
+/* uBlock Origin YouTube ad & promo components */
+ytd-ad-slot-renderer,
+ytd-in-feed-ad-layout-renderer,
+ytd-banner-promo-renderer,
+ytd-statement-banner-renderer,
+ytd-promoted-video-renderer,
+#masthead-ad,
+#player-ads {
     display: none !important;
 }

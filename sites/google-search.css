@@ -28,6 +28,10 @@ div[data-dsktp-pla],
 
 /* Semantic & accessibility ad containers */
 div[aria-label="Ads"],
-div[aria-label="Sponsored"] {
+div[aria-label="Sponsored"],
+
+/* Google Local Services & Screened ads (uBlock Origin) */
+[data-profile-url-path^="/localservices"],
+.D1fz0e {
     display: none !important;
 }

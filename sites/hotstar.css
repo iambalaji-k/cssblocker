@@ -1,5 +1,9 @@
 /* Hotstar ads – core block */
 [data-testid="ad-media"],
-[data-testid="ad-details"] {
+[data-testid="ad-details"],
+
+/* uBlock Origin Hotstar ad widget types */
+div[data-testid^="bbtype-video"],
+div[data-testid^="bbtype-image"] {
     display: none !important;
 }
