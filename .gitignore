@@ -1,0 +1,4 @@
+.commandcode/
+.playwright-cli/
+cookies.txt
+storage_state.json

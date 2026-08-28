@@ -3,15 +3,216 @@
     display: none !important;
 }
 
-/* Expand main timeline column */
+/* Expand & Center main timeline column in viewport */
+main[role="main"] {
+    margin-left: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: calc(100% - 68px) !important;
+}
+
+main[role="main"] > div,
+main[role="main"] > div > div,
+div:has(> [data-testid="primaryColumn"]) {
+    max-width: 700px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 [data-testid="primaryColumn"] {
-    max-width: 100% !important;
+    max-width: 700px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-left: 1px solid rgba(128, 128, 128, 0.2) !important;
+    border-right: 1px solid rgba(128, 128, 128, 0.2) !important;
+}
+
+/* Left Sidebar: Pin to left edge as an Icon Rail */
+header[role="banner"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    width: 68px !important;
+    z-index: 9999 !important;
+    background-color: inherit !important;
+    border-right: 1px solid rgba(128, 128, 128, 0.2) !important;
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.22s ease !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Support pure black / dark / light mode */
+html[style*="background-color: rgb(0, 0, 0)"] header[role="banner"] {
+    background-color: #000000 !important;
+}
+html[style*="background-color: rgb(21, 32, 43)"] header[role="banner"] {
+    background-color: #15202b !important;
+}
+
+/* Ensure inner layout elements fit within the header */
+header[role="banner"] > div,
+header[role="banner"] > div > div,
+header[role="banner"] > div > div > div {
+    position: static !important;
+    width: 100% !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+    box-sizing: border-box !important;
+}
+
+/* Center navigation links & items in collapsed state */
+header[role="banner"] nav {
+    width: 100% !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+header[role="banner"] nav a,
+header[role="banner"] [data-testid="AppTabBar_More_Menu"] {
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 4px 0 !important;
+    margin: 0 auto !important;
     width: 100% !important;
 }
 
-/* Remove layout constraints from parent */
-div:has(> [data-testid="primaryColumn"]) {
-    max-width: 100% !important;
+header[role="banner"] nav a > div,
+header[role="banner"] [data-testid="AppTabBar_More_Menu"] > div {
+    margin: 0 auto !important;
+}
+
+/* Center the X logo */
+header[role="banner"] h1 {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+header[role="banner"] h1 a {
+    margin: 0 auto !important;
+}
+
+/* Collapsed state: Hide text labels & user info */
+header[role="banner"]:not(:hover) nav a > div > div:not(:first-child),
+header[role="banner"]:not(:hover) [data-testid="AppTabBar_More_Menu"] > div > div:not(:first-child),
+header[role="banner"]:not(:hover) [data-testid="SideNav_AccountSwitcher_Button"] > div:not(:first-child) {
+    display: none !important;
+}
+
+/* Post button (White button + Black text for Brave/X Dark Mode) */
+header[role="banner"] [data-testid="SideNav_NewTweet_Button"] {
+    background-color: #eff3f4 !important;
+    color: #000000 !important;
+}
+
+/* Hide internal DOM structure of post button to prevent React text loss */
+header[role="banner"] [data-testid="SideNav_NewTweet_Button"] > div {
+    display: none !important;
+}
+
+/* Collapsed State: Circular (+) button */
+header[role="banner"]:not(:hover) [data-testid="SideNav_NewTweet_Button"] {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    margin: 12px auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+header[role="banner"]:not(:hover) [data-testid="SideNav_NewTweet_Button"]::after {
+    content: "+" !important;
+    font-size: 26px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    color: #000000 !important;
+    display: block !important;
+}
+
+/* Account switcher in collapsed state */
+header[role="banner"]:not(:hover) [data-testid="SideNav_AccountSwitcher_Button"] {
+    justify-content: center !important;
+    padding: 6px 0 !important;
+    width: auto !important;
+    margin: 8px auto !important;
+}
+
+/* Hover State: Expand smoothly as floating drawer with left-aligned inner elements */
+header[role="banner"]:hover {
+    width: 275px !important;
+    align-items: stretch !important;
+    box-shadow: 10px 0 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+header[role="banner"]:hover > div,
+header[role="banner"]:hover > div > div,
+header[role="banner"]:hover > div > div > div {
+    align-items: stretch !important;
+    padding: 0 16px !important;
+}
+
+header[role="banner"]:hover nav {
+    align-items: flex-start !important;
+}
+
+header[role="banner"]:hover nav a,
+header[role="banner"]:hover [data-testid="AppTabBar_More_Menu"] {
+    justify-content: flex-start !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+header[role="banner"]:hover h1 {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+}
+header[role="banner"]:hover h1 a {
+    margin: 0 !important;
+}
+
+header[role="banner"]:hover [data-testid="SideNav_AccountSwitcher_Button"] {
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+}
+
+/* Expanded State: Full pill with bold black "Post" text */
+header[role="banner"]:hover [data-testid="SideNav_NewTweet_Button"] {
+    width: 100% !important;
+    min-height: 48px !important;
+    height: 48px !important;
+    margin: 12px 0 !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+header[role="banner"]:hover [data-testid="SideNav_NewTweet_Button"]::after {
+    content: "Post" !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    color: #000000 !important;
+    display: block !important;
 }
 
 /* Creator Studio */
