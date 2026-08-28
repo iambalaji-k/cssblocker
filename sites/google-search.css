@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Google Search Results - Ads & Sponsored Results Blocker
+   ========================================================================== */
+
+/* Top ad containers */
+#tvcap,
+#taw,
+#tads,
+
+/* Bottom ad containers */
+#bottomads,
+#tadsb,
+
+/* Individual text ad blocks (top, bottom, and inline) */
+div[data-text-ad],
+.MjjYud:has([data-text-ad]),
+
+/* Shopping & Product Listing Ads (PLA) */
+div[data-pla-slot],
+div[data-dsktp-pla],
+.MjjYud:has([data-dsktp-pla]),
+.MjjYud:has([data-pla-slot]),
+
+/* Commercial units (top banner & right-hand sidebar) */
+.commercial-unit-desktop-top,
+.commercial-unit-desktop-rhs,
+#rhs_block .commercial-unit-desktop-rhs,
+
+/* Semantic & accessibility ad containers */
+div[aria-label="Ads"],
+div[aria-label="Sponsored"] {
+    display: none !important;
+}

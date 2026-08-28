@@ -22,6 +22,11 @@ The extension uses **CSS Injection**. When you load a page, the browser automati
 | Gemini | `sites/gemini.css` | Sidebar clutter, upgrade promos |
 | DeepSeek | `sites/deepseek.css` | Sidebar clutter, upgrade promos |
 | YouTube | `sites/youtube.css` | Promoted/sparkles videos, merch shelf, banner promos, player ads, mealbar promos |
+| Google Home | `sites/google-home.css` | Footer clutter, About/Store links, I'm Feeling Lucky button, header shortcuts |
+| Google Search | `sites/google-search.css` | Top/bottom text ads, shopping carousel (PLA), commercial units, in-feed sponsored results |
+| Reddit | `sites/reddit.css` | Promoted posts and ad containers |
+| Gmail | `sites/gmail.css` | Ads and promotions tab clutter |
+| LinkedIn | `sites/linkedin.css` | Promoted posts, feed ads, and side banners |
 
 ## Project Structure
 
