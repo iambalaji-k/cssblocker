@@ -1,6 +1,6 @@
 # CSS Blocker
 
-A lightweight browser extension that removes unwanted sections (ads, sidebars, promos, clutter) from websites using CSS injection. Works on 12 sites out of the box — Amazon, Flipkart, Hotstar, Instagram, X/Twitter, Crunchyroll, AngelOne, ICAI, ChatGPT, Gemini, DeepSeek, and YouTube.
+A lightweight browser extension that removes unwanted sections (ads, sidebars, promos, clutter) from websites using CSS injection. Works on 19 sites out of the box — Amazon, Flipkart, Hotstar, Instagram, X/Twitter, Crunchyroll, AngelOne, ICAI, ChatGPT, Gemini, DeepSeek, YouTube, Google Home, Google Search, Reddit, Gmail, LinkedIn, IRCTC, and Income Tax e-Filing.
 
 ## How it Works
 
@@ -11,7 +11,7 @@ The extension uses **CSS Injection**. When you load a page, the browser automati
 | Site | CSS File | What's Blocked |
 |---|---|---|
 | Amazon | `sites/amazon.css` | Sponsored products, trending widgets, promo carousels, VSE ads, brand sections |
-| Flipkart | `sites/flipkart.css` | Search result ads, product tiles with AD badges, tracking links |
+| Flipkart | `sites/flipkart.css` | Search result ads (`ADVIEW_`), "Great finds for you" sponsored carousels, Atlas & Sherlock PLA (Product Listing Ads), PMU ad banners, Base64 tracking signatures, and legacy AD badges |
 | Hotstar | `sites/hotstar.css` | Ad media and ad details containers |
 | Instagram | `sites/instagram.css` | Sidebar widgets, "Also from Meta" links |
 | X / Twitter | `sites/x.css` | Right sidebar, premium sign-up, creator studio links |
@@ -27,6 +27,30 @@ The extension uses **CSS Injection**. When you load a page, the browser automati
 | Reddit | `sites/reddit.css` | Promoted posts and ad containers |
 | Gmail | `sites/gmail.css` | Ads and promotions tab clutter |
 | LinkedIn | `sites/linkedin.css` | Promoted posts, feed ads, and side banners |
+| IRCTC | `sites/irctc.css` | Advisory ticker bar, QR promos, complete footer (`app-footer`), TrueReach/TechLab/Google ad banners, Ask DISHA AI bot overlay (also unlocks right-click & DevTools shortcuts via `sites/irctc.js`) |
+| Income Tax | `sites/incometax.css` | Login promo sidebar & illustrations (with centered login card), TaxGenie AI assistant, large screen banner |
+
+---
+
+### Flipkart Ad Blocking Strategy (`sites/flipkart.css`)
+
+Flipkart uses modern React / React Native for Web with heavily minified, dynamically generated class names that change frequently. To prevent breakage, `sites/flipkart.css` targets Flipkart ads using **multi-layered, stable identifiers**:
+
+1. **Search Results Ads (`data-tkid^="ADVIEW_"`)**:
+   Flipkart search results inject a tracking attribute `data-tkid="ADVIEW_..."` into sponsored product containers. Using `div[data-id]:has([data-tkid^="ADVIEW_"])` cleanly collapses the entire ad result item.
+
+2. **Base64 Tracking Signatures (PLA & PMU Ads)**:
+   Flipkart encodes ad metadata in the `fm` URL query parameter as Base64 JSON (e.g., `{"wtp":"atlas_pmu_v5","prpt":"hp","mid":"pla/u2ssherlock"}` or `{"wtp":"pmu_v2","mid":"pla"}`). We match the invariant Base64 substring tokens:
+   - `LCJtaWQiOiJwbGE` & `Im1pZCI6InBsY` $\rightarrow$ Decodes to `mid: "pla"` (All Product Listing Ads).
+   - `eyJ3dHAiOiJwbX` $\rightarrow$ Decodes to `wtp: "pmu"` (Product Matching Unit ad banners).
+   - `eyJ3dHAiOiJhdGxhc1` $\rightarrow$ Decodes to `wtp: "atlas"` (Atlas recommendation ads).
+   - `dTJzc2hlcmxvY2s` $\rightarrow$ Decodes to `u2ssherlock` (Sherlock bidding engine).
+
+3. **Container-Level Collapse via `:has(...)`**:
+   Rather than merely hiding individual ad images (which leaves blank white/grey boxes), rules like `div.fWi7J_:has(a[href*="LCJtaWQiOiJwbGE"])` and `div.yiQOTv:has(...)` collapse the entire sponsored carousel and its headers (such as *"Great finds for you"* & *"Sponsored"*).
+
+4. **Direct Link & Grid Fallbacks**:
+   If parent wrappers change classes, fallback selectors (`.grid-formation:has(...)` and `a[href*="..."]`) catch and eliminate the ad items directly.
 
 ## Project Structure
 

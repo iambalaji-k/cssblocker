@@ -1,4 +1,4 @@
-/* === FLIPKART ADS CLEANUP (OPTIMIZED) === */
+/* === FLIPKART ADS CLEANUP (OPTIMIZED & BULLETPROOF) === */
 
 /* 1. Search results ads (most reliable) */
 div[data-id]:has([data-tkid^="ADVIEW_"]),
@@ -8,8 +8,32 @@ a[href*="_AD"],
 a[href*="advertisement"],
 a[href*="/partnership/"],
 
-/* 3. Product tiles with AD badge (all pages) */
+/* 3. Legacy / explicit badges */
 div[id^="product-"]:has(div[class*="v1zwn"]),
-a[href*="/p/"]:has(div[class*="v1zwn"]) {
+a[href*="/p/"]:has(div[class*="v1zwn"]),
+
+/* 4. Full Sponsored Widgets & Banners (Hides entire section cleanly) */
+div.fWi7J_:has(a[href*="LCJtaWQiOiJwbGE"]),
+div.yiQOTv:has(a[href*="LCJtaWQiOiJwbGE"]),
+div.fWi7J_:has(a[href*="Im1pZCI6InBsY"]),
+div.yiQOTv:has(a[href*="Im1pZCI6InBsY"]),
+div.fWi7J_:has(a[href*="eyJ3dHAiOiJwbX"]),
+div.yiQOTv:has(a[href*="eyJ3dHAiOiJwbX"]),
+div.fWi7J_:has(a[href*="eyJ3dHAiOiJhdGxhc1"]),
+div.yiQOTv:has(a[href*="eyJ3dHAiOiJhdGxhc1"]),
+div.fWi7J_:has(a[href*="dTJzc2hlcmxvY2s"]),
+div.yiQOTv:has(a[href*="dTJzc2hlcmxvY2s"]),
+
+/* 5. Fallback: Catch any individual sponsored cards or grids */
+.grid-formation:has(a[href*="LCJtaWQiOiJwbGE"]),
+.grid-formation:has(a[href*="eyJ3dHAiOiJwbX"]),
+a[href*="LCJtaWQiOiJwbGE"],
+a[href*="Im1pZCI6InBsY"],
+a[href*="eyJ3dHAiOiJwbX"],
+a[href*="eyJ3dHAiOiJhdGxhc1"],
+a[href*="dTJzc2hlcmxvY2s"],
+a[href*="atlas_pmu"],
+a[href*="pla%2Fu2ssherlock"],
+a[href*="pla/u2ssherlock"] {
     display: none !important;
 }

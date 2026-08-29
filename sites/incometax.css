@@ -1,0 +1,50 @@
+/* Login & Password page promotional / info / lock illustration sidebar */
+app-login .row.card-border > div.col-lg-7,
+app-login .row.card-border div.col-lg-7.login,
+.row.card-border > div.col-lg-7.login {
+    display: none !important;
+}
+
+/* Reset the outer card border and center the row across login/password screens */
+app-login .row.card-border {
+    border: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    background: transparent !important;
+}
+
+/* Center and frame the standalone login / password card */
+app-login .row.card-border > div.col-lg-5,
+app-login .col-md-12.col-lg-5.login,
+app-login .col-lg-5.login.whiteBackground,
+.row.card-border > div.col-lg-5.login {
+    max-width: 490px !important;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    border: 1px solid rgba(42, 58, 141, 0.18) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    margin: 0 auto !important;
+}
+
+/* Align mandatory fields indicator with centered card */
+app-login .container > .row.body-2-text.color-code-06,
+app-login .row:has(.lipstick-cd2026) {
+    max-width: 490px !important;
+    margin: 0 auto 8px auto !important;
+    justify-content: flex-end !important;
+}
+
+/* TaxGenie AI Chatbot / Virtual Assistant */
+app-virtual-assistant,
+div.fixed.bottom-6.right-6,
+div:has(> button[aria-label="Chatbot"]),
+button[aria-label="Chatbot"],
+img[alt="TaxGenie logo"] {
+    display: none !important;
+}
+
+/* Large screens banner / announcement row */
+#forLargeScreens > div > div > div.row.pt-3 {
+    display: none !important;
+}

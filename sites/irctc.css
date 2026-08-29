@@ -1,0 +1,35 @@
+/* === IRCTC CLEANUP === */
+
+/* 1. Advisory bar, QR promo, Complete Footer, Beta Badge */
+.advisory-bar,
+app-qr,
+app-footer,
+img.beta-logo,
+img[src*="betaVersion"],
+
+/* 2. Top, Bottom & Side Ad Banners */
+app-advertise,
+app-top-banner,
+app-bottom-banner,
+.ad-container,
+div[class*="ad_container"],
+
+/* 3. Third-party ad iframes (TrueReach, TechLab, Google Ads) */
+iframe[src*="truereach"],
+iframe[src*="techlab"],
+iframe[id*="google_ads"],
+iframe[src="about:blank"],
+
+/* 4. Ask DISHA AI bot overlay */
+#corover-disha,
+iframe#corover-chat-frame,
+app-disha {
+    display: none !important;
+}
+
+/* 5. Fix sticky train search strip offset after advisory bar removal */
+div.hero-sticky.train-search-strip,
+app-train-list > div.hero-sticky {
+    top: 88px !important;
+}
+

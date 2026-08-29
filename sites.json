@@ -148,5 +148,20 @@
     ],
     "css": "sites/linkedin.css",
     "js": "sites/linkedin.js"
+  },
+  {
+    "name": "IRCTC",
+    "matches": [
+      "https://*.irctc.co.in/*"
+    ],
+    "css": "sites/irctc.css",
+    "js": "sites/irctc.js"
+  },
+  {
+    "name": "Income Tax",
+    "matches": [
+      "https://*.incometax.gov.in/*"
+    ],
+    "css": "sites/incometax.css"
   }
 ]

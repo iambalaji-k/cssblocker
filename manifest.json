@@ -177,6 +177,25 @@
       "js": [
         "sites/linkedin.js"
       ]
+    },
+    {
+      "matches": [
+        "https://*.irctc.co.in/*"
+      ],
+      "css": [
+        "sites/irctc.css"
+      ],
+      "js": [
+        "sites/irctc.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.incometax.gov.in/*"
+      ],
+      "css": [
+        "sites/incometax.css"
+      ]
     }
   ]
 }

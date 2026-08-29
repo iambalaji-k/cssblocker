@@ -29,6 +29,50 @@ div[data-cel-widget*="sp_search_thematic"],
 [data-feature-name*="sponsoredProducts"],
 
 /* Remove Brands in this category on Amazon section */
-[data-feature-name="sims-discoveryAndInspiration"] {
+[data-feature-name="sims-discoveryAndInspiration"],
+
+/* APE ad placements and wrappers */
+[id^="ape_"],
+.ape-wrapper,
+.ape-placement,
+[data-ref*="displayAds"],
+div[data-cel-widget*="adplacements:"],
+div[cel_widget_id*="adplacements:"],
+
+/* GWM Gateway sponsored ASIN tiles and card placements */
+li.gwm-tile:has([id^="ape_"]),
+li.gwm-tile:has([data-ref*="displayAds"]),
+li.gwm-tile:has([data-cel-widget*="adplacements:"]),
+li.gwm-tile:has([cel_widget_id*="adplacements:"]),
+li.gwm-tile:has([class*="sponsored-badge"]),
+li.gwm-tile:has([class*="hybrid-sponsored-label"]),
+li.gwm-tile:has([class*="hybrid-widget-sponsored-label"]),
+li.gwm-tile:has([data-ad-feedback-asin]),
+li.gwm-tile:has([data-ad-id]),
+div[class*="_gwm-asin-tile"]:has([class*="sponsored-badge"]),
+div[class*="_gwm-asin-tile"]:has([class*="hybrid-sponsored-label"]),
+div[class*="_gwm-asin-tile"]:has([class*="hybrid-widget-sponsored-label"]),
+div[class*="_gwm-asin-tile"]:has([data-ad-feedback-asin]),
+div[class*="_gwm-asin-tile"]:has([data-ad-id]),
+div[class*="_gwm-asin-tile"]:has([data-ad-feedback-label-id]),
+div[class*="gwm-widget"]:has([id^="ape_"]),
+div[class*="gwm-widget"]:has([data-ref*="displayAds"]),
+
+/* N-Pack & Grid ASIN sponsored cards and list items */
+[role="listitem"]:has([id^="ape_"]),
+[role="listitem"]:has([data-ref*="displayAds"]),
+[role="listitem"]:has([data-cel-widget*="adplacements:"]),
+[role="listitem"]:has([class*="sponsored-badge"]),
+[role="listitem"]:has([class*="hybrid-sponsored-label"]),
+[role="listitem"]:has([class*="hybrid-widget-sponsored-label"]),
+[role="listitem"]:has([data-ad-feedback-asin]),
+[role="listitem"]:has([data-ad-id]),
+[role="listitem"]:has([data-ad-feedback-label-id]),
+div[class*="_npack-asin-card"]:has([class*="sponsored-badge"]),
+div[class*="_npack-asin-card"]:has([class*="hybrid-sponsored-label"]),
+div[class*="_npack-asin-card"]:has([class*="hybrid-widget-sponsored-label"]),
+div[class*="_npack-asin-card"]:has([data-ad-feedback-asin]),
+div[class*="_npack-asin-card"]:has([data-ad-id]),
+div[class*="_npack-asin-card"]:has([data-ad-feedback-label-id]) {
     display: none !important;
 }
