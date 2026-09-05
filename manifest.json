@@ -96,7 +96,8 @@
     },
     {
       "matches": [
-        "https://*.chatgpt.com/*"
+        "https://*.chatgpt.com/*",
+        "https://chatgpt.com/*"
       ],
       "css": [
         "sites/chatgpt.css"

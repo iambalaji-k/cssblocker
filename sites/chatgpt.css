@@ -1,7 +1,35 @@
-[class*="-mt-4"].text-token-text-tertiary.relative {
+/* ==========================================================================
+   ChatGPT (chatgpt.com)
+   - AI Disclaimer / Legal Notice ("ChatGPT is AI and can make mistakes")
+   - Sidebar Clutter & Upgrade Promos ("See plans and pricing", login prompt)
+   ========================================================================== */
+
+/* AI Disclaimer & Legal/Privacy Notices (New Web-Mobile architecture) */
+.wm-app-privacyPositioner,
+[data-compact-disclaimer],
+[data-privacy-notice],
+[data-privacy-legal-notice],
+.wm-app-disclosureThreadEnd,
+[data-mobile-disclosure-thread-end] {
     display: none !important;
 }
 
+/* Sidebar Clutter, Upgrade Promos & Profile Switchers */
+a[href*="/chatgpt/pricing"],
+a[aria-label*="See plans and pricing" i],
+div.pointer-events-none:has([aria-label="Select chat surface"]),
+div:has(> div > [aria-label="Select chat surface"]),
+div.pointer-events-none:has([data-tpp-toggle-value]),
+div:has(> div > [role="radiogroup"]),
+[aria-label="Select chat surface"],
+[role="radiogroup"]:has([data-tpp-toggle-value]),
+.wm-sidebar-loginPanel,
+[aria-labelledby="sidebar-login-title"] {
+    display: none !important;
+}
+
+/* Backward compatibility (Legacy Tailwind-based layout) */
+[class*="-mt-4"].text-token-text-tertiary.relative,
 [class*="text-caption-regular"][class*="text-token-text-tertiary"][class*="pointer-events-auto"] {
     display: none !important;
 }
